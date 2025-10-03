@@ -1,0 +1,104 @@
+{
+  "categories": [
+    {
+      "id": "cspm",
+      "name": "CSPM Executive Dashboard",
+      "widgets": [
+        {
+          "id": "w1",
+          "name": "Cloud Accounts",
+          "type": "donut",
+          "data": {
+            "connected": 2,
+            "notConnected": 2
+          }
+        },
+        {
+          "id": "w2",
+          "name": "Cloud Account Risk Assessment",
+          "type": "donut",
+          "data": {
+            "failed": 1689,
+            "warning": 681,
+            "notAvailable": 36,
+            "passed": 7253
+          }
+        }
+      ]
+    },
+    {
+      "id": "cwpp",
+      "name": "CWPP Dashboard",
+      "widgets": [
+        {
+          "id": "w3",
+          "name": "Top 5 Namespace Specific Alerts",
+          "type": "empty"
+        },
+        {
+          "id": "w4",
+          "name": "Workload Alerts",
+          "type": "empty"
+        }
+      ]
+    },
+    {
+      "id": "registry",
+      "name": "Registry Scan",
+      "widgets": [
+        {
+          "id": "w5",
+          "name": "Image Risk Assessment",
+          "type": "bar",
+          "data": {
+            "total": 1470,
+            "critical": 9,
+            "high": 150
+          }
+        },
+        {
+          "id": "w6",
+          "name": "Image Security Issues",
+          "type": "bar",
+          "data": {
+            "total": 2,
+            "critical": 2,
+            "high": 2
+          }
+        }
+      ]
+    }
+  ],
+  "availableWidgets": {
+    "cspm": [
+      {
+        "id": "cloud_accounts",
+        "name": "Cloud Accounts"
+      },
+      {
+        "id": "cloud_risk",
+        "name": "Cloud Account Risk Assessment"
+      }
+    ],
+    "cwpp": [
+      {
+        "id": "namespace_alerts",
+        "name": "Top 5 Namespace Specific Alerts"
+      },
+      {
+        "id": "workload_alerts",
+        "name": "Workload Alerts"
+      }
+    ],
+    "registry": [
+      {
+        "id": "image_risk",
+        "name": "Image Risk Assessment"
+      },
+      {
+        "id": "security_issues",
+        "name": "Image Security Issues"
+      }
+    ]
+  }
+}
