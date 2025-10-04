@@ -8,6 +8,7 @@
           "id": "w1",
           "name": "Cloud Accounts",
           "type": "donut",
+          "chartType": "cloudAccounts",
           "data": {
             "connected": 2,
             "notConnected": 2
@@ -17,6 +18,7 @@
           "id": "w2",
           "name": "Cloud Account Risk Assessment",
           "type": "donut",
+          "chartType": "riskAssessment",
           "data": {
             "failed": 1689,
             "warning": 681,
@@ -33,12 +35,14 @@
         {
           "id": "w3",
           "name": "Top 5 Namespace Specific Alerts",
-          "type": "empty"
+          "type": "empty",
+          "data": null
         },
         {
           "id": "w4",
           "name": "Workload Alerts",
-          "type": "empty"
+          "type": "empty",
+          "data": null
         }
       ]
     },
@@ -73,31 +77,91 @@
     "cspm": [
       {
         "id": "cloud_accounts",
-        "name": "Cloud Accounts"
+        "name": "Cloud Accounts",
+        "type": "donut",
+        "chartType": "cloudAccounts",
+        "defaultData": {
+          "connected": 2,
+          "notConnected": 2
+        }
       },
       {
         "id": "cloud_risk",
-        "name": "Cloud Account Risk Assessment"
+        "name": "Cloud Account Risk Assessment",
+        "type": "donut",
+        "chartType": "riskAssessment",
+        "defaultData": {
+          "failed": 1689,
+          "warning": 681,
+          "notAvailable": 36,
+          "passed": 7253
+        }
+      },
+      {
+        "id": "cloud_compliance",
+        "name": "Cloud Compliance Status",
+        "type": "donut",
+        "chartType": "cloudAccounts",
+        "defaultData": {
+          "connected": 5,
+          "notConnected": 1
+        }
       }
     ],
     "cwpp": [
       {
         "id": "namespace_alerts",
-        "name": "Top 5 Namespace Specific Alerts"
+        "name": "Top 5 Namespace Specific Alerts",
+        "type": "empty",
+        "defaultData": null
       },
       {
         "id": "workload_alerts",
-        "name": "Workload Alerts"
+        "name": "Workload Alerts",
+        "type": "empty",
+        "defaultData": null
+      },
+      {
+        "id": "container_security",
+        "name": "Container Security Scan",
+        "type": "bar",
+        "defaultData": {
+          "total": 500,
+          "critical": 15,
+          "high": 75
+        }
       }
     ],
     "registry": [
       {
         "id": "image_risk",
-        "name": "Image Risk Assessment"
+        "name": "Image Risk Assessment",
+        "type": "bar",
+        "defaultData": {
+          "total": 1470,
+          "critical": 9,
+          "high": 150
+        }
       },
       {
         "id": "security_issues",
-        "name": "Image Security Issues"
+        "name": "Image Security Issues",
+        "type": "bar",
+        "defaultData": {
+          "total": 2,
+          "critical": 2,
+          "high": 2
+        }
+      },
+      {
+        "id": "vulnerability_scan",
+        "name": "Vulnerability Assessment",
+        "type": "bar",
+        "defaultData": {
+          "total": 850,
+          "critical": 25,
+          "high": 120
+        }
       }
     ]
   }

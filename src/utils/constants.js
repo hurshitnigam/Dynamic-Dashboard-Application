@@ -32,8 +32,21 @@ export const CHART_COLORS = {
 
 // Time Ranges
 export const TIME_RANGES = [
-  "Last 2 days",
-  "Last 7 days",
-  "Last 30 days",
-  "Last 90 days",
+  { value: "2d", label: "Last 2 days" },
+  { value: "7d", label: "Last 7 days" },
+  { value: "30d", label: "Last 30 days" },
+  { value: "90d", label: "Last 90 days" },
 ];
+
+// Search Configuration
+export const SEARCH_CONFIG = {
+  DEBOUNCE_DELAY: 300,
+  MIN_SEARCH_LENGTH: 2,
+  PLACEHOLDER: "Search widgets...",
+};
+
+// Widget Chart Types
+export const CHART_TYPES = {
+  CLOUD_ACCOUNTS: "cloudAccounts",
+  RISK_ASSESSMENT: "riskAssessment",
+};

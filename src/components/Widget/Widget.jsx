@@ -6,15 +6,22 @@ import { WIDGET_TYPES } from '../../utils/constants';
 
 const Widget = ({ widget, onRemove }) => {
     const renderContent = () => {
+        // Handle custom widgets
+        if (widget.type === 'custom' || widget.isCustom) {
+            return (
+                <div className="text-sm text-gray-600 whitespace-pre-line">
+                    {widget.text || 'No data available'}
+                </div>
+            );
+        }
+
+        // Handle predefined widget types
         switch (widget.type) {
             case WIDGET_TYPES.DONUT:
-                if (widget.name === 'Cloud Accounts') {
-                    return <DonutChart data={widget.data} type="cloudAccounts" />;
-                }
-                if (widget.name === 'Cloud Account Risk Assessment') {
-                    return <DonutChart data={widget.data} type="riskAssessment" />;
-                }
-                return null;
+                // Use chartType if available, otherwise infer from name
+                const chartType = widget.chartType ||
+                    (widget.name.includes('Risk') ? 'riskAssessment' : 'cloudAccounts');
+                return <DonutChart data={widget.data} type={chartType} />;
 
             case WIDGET_TYPES.BAR:
                 return <BarChart data={widget.data} />;
@@ -23,7 +30,7 @@ const Widget = ({ widget, onRemove }) => {
                 return <EmptyState />;
 
             default:
-                return null;
+                return <EmptyState />;
         }
     };
 
@@ -40,6 +47,12 @@ const Widget = ({ widget, onRemove }) => {
             <h3 className="font-semibold text-sm text-gray-900 mb-4">
                 {widget.name}
             </h3>
+
+            {widget.isCustom && (
+                <span className="inline-block px-2 py-1 text-xs bg-blue-100 text-blue-700 rounded mb-3">
+                    Custom Widget
+                </span>
+            )}
 
             <div className="widget-content">
                 {renderContent()}
